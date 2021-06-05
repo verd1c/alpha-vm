@@ -140,11 +140,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AVM.cpp" />
+    <ClCompile Include="execute\arithmetic.cpp" />
+    <ClCompile Include="execute\assign.cpp" />
+    <ClCompile Include="execute\boolean.cpp" />
+    <ClCompile Include="execute\branch.cpp" />
+    <ClCompile Include="execute\func.cpp" />
+    <ClCompile Include="execute\nop.cpp" />
+    <ClCompile Include="execute\table.cpp" />
     <ClCompile Include="mem.cpp" />
     <ClCompile Include="vm.cpp" />
     <ClCompile Include="vmarg.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="execute.h" />
     <ClInclude Include="mem.h" />
     <ClInclude Include="vm.h" />
     <ClInclude Include="vmarg.h" />

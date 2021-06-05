@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\execute">
+      <UniqueIdentifier>{9d5a1b13-d1ec-4355-a0c3-399b5b0bb6e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AVM.cpp">
@@ -27,6 +30,27 @@
     <ClCompile Include="vm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="execute\assign.cpp">
+      <Filter>Source Files\execute</Filter>
+    </ClCompile>
+    <ClCompile Include="execute\branch.cpp">
+      <Filter>Source Files\execute</Filter>
+    </ClCompile>
+    <ClCompile Include="execute\arithmetic.cpp">
+      <Filter>Source Files\execute</Filter>
+    </ClCompile>
+    <ClCompile Include="execute\func.cpp">
+      <Filter>Source Files\execute</Filter>
+    </ClCompile>
+    <ClCompile Include="execute\table.cpp">
+      <Filter>Source Files\execute</Filter>
+    </ClCompile>
+    <ClCompile Include="execute\nop.cpp">
+      <Filter>Source Files\execute</Filter>
+    </ClCompile>
+    <ClCompile Include="execute\boolean.cpp">
+      <Filter>Source Files\execute</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vmarg.h">
@@ -36,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="vm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="execute.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
