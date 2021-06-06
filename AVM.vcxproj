@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AVM.cpp" />
+    <ClCompile Include="execute.cpp" />
     <ClCompile Include="execute\arithmetic.cpp" />
     <ClCompile Include="execute\assign.cpp" />
     <ClCompile Include="execute\boolean.cpp" />
