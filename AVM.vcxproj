@@ -150,12 +150,17 @@
     <ClCompile Include="execute\nop.cpp" />
     <ClCompile Include="execute\table.cpp" />
     <ClCompile Include="mem.cpp" />
+    <ClCompile Include="tools\arith.cpp" />
+    <ClCompile Include="tools\bool.cpp" />
+    <ClCompile Include="tools\strings.cpp" />
     <ClCompile Include="vm.cpp" />
     <ClCompile Include="vmarg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="execute.h" />
     <ClInclude Include="mem.h" />
+    <ClInclude Include="structs.h" />
+    <ClInclude Include="tools.h" />
     <ClInclude Include="vm.h" />
     <ClInclude Include="vmarg.h" />
   </ItemGroup>

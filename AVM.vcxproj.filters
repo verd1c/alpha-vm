@@ -16,6 +16,9 @@
     <Filter Include="Source Files\execute">
       <UniqueIdentifier>{9d5a1b13-d1ec-4355-a0c3-399b5b0bb6e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\tools">
+      <UniqueIdentifier>{fa5bcf7e-7344-46fa-bc44-a0581b0dae09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AVM.cpp">
@@ -54,6 +57,15 @@
     <ClCompile Include="execute.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tools\strings.cpp">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\arith.cpp">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\bool.cpp">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vmarg.h">
@@ -66,6 +78,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="execute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
