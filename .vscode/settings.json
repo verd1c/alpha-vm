@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "concepts": "cpp",
+        "deque": "cpp",
+        "exception": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "memory": "cpp",
+        "ostream": "cpp",
+        "stack": "cpp",
+        "system_error": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "vector": "cpp",
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xmemory": "cpp",
+        "xstddef": "cpp",
+        "xstring": "cpp",
+        "xtr1common": "cpp",
+        "xutility": "cpp"
+    }
+}
