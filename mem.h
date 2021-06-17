@@ -36,6 +36,7 @@ namespace mem {
     void call_save_environment(VM *vm);
     void calllibfunc(VM *vm, char *id);
     unsigned totalactuals(VM *vm);
+    userfunc *getfuncinfo(VM *vm, unsigned i);
     AVM_memcell *getactual(VM *vm, unsigned i);
 }
 

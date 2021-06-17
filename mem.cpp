@@ -59,6 +59,12 @@ void mem::assign(AVM_memcell *lv, AVM_memcell *rv) {
 	}
 }
 
+userfunc *mem::getfuncinfo(VM *vm, unsigned i) {
+	for (int j = 0; j < vm->userfuncs.size(); j++) {
+		if (vm->userfuncs.at(j).address == i) return &vm->userfuncs.at(j);
+	}
+}
+
 void mem::dec_top(VM *vm) {
 	if (!vm->top) {
 		vm->exec_finished = true;

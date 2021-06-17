@@ -199,7 +199,7 @@ AVM_memcell *VM::translate_operand(VMArg *arg, AVM_memcell *reg) {
 		return reg;
 	case VMArg_t::userfunc:
 		reg->type = AVM_memcell_t::userfunc_m;
-		reg->data.funcVal = arg->val;
+		reg->data.funcVal = userfuncs.at(arg->val).address;
 		return reg;
 	case VMArg_t::libfunc:
 		reg->type = AVM_memcell_t::libfunc_m;

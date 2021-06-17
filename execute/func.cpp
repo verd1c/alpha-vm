@@ -40,9 +40,9 @@ void Execute::funcenter(VM *vm, Instruction *instr) {
 	assert(vm->pc == func->data.funcVal);
 
 	vm->totalActuals = 0;
-	//userfunc *funcInfo = avm_getfuncinfo(vm->pc);
-	//vm->topsp = vm->top;
-	//vm->top = vm->top - funcInfo->local_size;
+	userfunc *funcInfo = mem::getfuncinfo(vm, vm->pc);
+	vm->topsp = vm->top;
+	vm->top = vm->top - funcInfo->local_size;
 }
 
 void Execute::funcexit(VM *vm, Instruction *instr) {
