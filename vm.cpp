@@ -45,7 +45,7 @@ int VM::parse(const char *fname) {
 	binary.read(reinterpret_cast<char *>(&len), sizeof(unsigned));
 	for (int i = 0; i < len; i++) {
 		char *str = breadstr(&binary);
-		this->strings.push_back(string(str));
+		this->strings.push_back(std::string(str));
 		//cout << "String: " << this->strings.front() << "\n";
 	}
 
@@ -53,7 +53,7 @@ int VM::parse(const char *fname) {
 	for (int i = 0; i < len; i++) {
 		double d;
 		char *str = breadstr(&binary);
-		d = stod(str);
+		d = std::stod(str);
 		//binary.read(reinterpret_cast<char *>(&d), sizeof(double));
 		this->nums.push_back(d);
 		//cout << "Num : " << d << "\n";
@@ -72,7 +72,7 @@ int VM::parse(const char *fname) {
 	binary.read(reinterpret_cast<char *>(&len), sizeof(unsigned));
 	for (int i = 0; i < len; i++) {
 		char *str = breadstr(&binary);
-		this->libfuncs.push_back(string(str));
+		this->libfuncs.push_back(std::string(str));
 		//cout << "Libfunc: " << this->libfuncs.front() << "\n";
 	}
 

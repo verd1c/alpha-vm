@@ -13,4 +13,5 @@ int main()
         vm.execute_cycle();
     }
     //vm.printInstructions();
+    return 1;
 }

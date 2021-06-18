@@ -2,11 +2,10 @@
 #define __VM__
 
 #include <iostream>
+#include <vector>
+#include <string>
 #include "vmarg.h"
 #include "structs.h"
-
-
-using namespace std;
 
 class VM {
 public:
@@ -15,11 +14,11 @@ public:
 	unsigned int instruction_len;
 
 	/* Constants */
-	vector<Instruction> instructions;
-	vector<double> nums;
-	vector<string> strings;
-	vector<userfunc> userfuncs;
-	vector<string> libfuncs;
+	std::vector<Instruction> instructions;
+	std::vector<double> nums;
+	std::vector<std::string> strings;
+	std::vector<userfunc> userfuncs;
+	std::vector<std::string> libfuncs;
 	unsigned totalGlobals = 0;
 
 	/* Dispatcher */
@@ -46,7 +45,7 @@ public:
 	int parse(const char *fname);
 	unsigned int getMagicNumber();
 	void printInstructions();
-	vector<Instruction> getInstructions();
+	std::vector<Instruction> getInstructions();
 
 	void execute_cycle(void);
 };

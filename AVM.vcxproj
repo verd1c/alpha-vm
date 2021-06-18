@@ -151,6 +151,7 @@
     <ClCompile Include="execute\nop.cpp" />
     <ClCompile Include="execute\table.cpp" />
     <ClCompile Include="mem.cpp" />
+    <ClCompile Include="tables.cpp" />
     <ClCompile Include="tools\arith.cpp" />
     <ClCompile Include="tools\bool.cpp" />
     <ClCompile Include="tools\strings.cpp" />
