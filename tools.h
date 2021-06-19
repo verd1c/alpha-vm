@@ -1,5 +1,6 @@
 #ifndef __TOOLS__
 #define __TOOLS__
+#include <cstring>
 
 #include "structs.h"
 #include "vm.h"
@@ -18,7 +19,7 @@ namespace tostring {
 	extern char *nil(VM *vm, AVM_memcell *m);
 	extern char *undef(VM *vm, AVM_memcell *m);
 
-	tostring_func_t tostringFuncs[];
+	extern tostring_func_t tostringFuncs[];
 }
 
 typedef double (*arithmetic_func_t)(double x, double y);
@@ -31,7 +32,7 @@ namespace impl {
 	double mod(double x, double y);
 	double minus(double x, double y);
 
-	arithmetic_func_t arithmeticFuncs[];
+	extern arithmetic_func_t arithmeticFuncs[];
 }
 
 typedef bool (*tobool_func_t) (AVM_memcell *);
@@ -48,7 +49,7 @@ namespace tobool {
 	bool nil(AVM_memcell *m);
 	bool undef(AVM_memcell *m);
 
-	tobool_func_t toboolFuncs[];
+	extern tobool_func_t toboolFuncs[];
 }
 
 #endif

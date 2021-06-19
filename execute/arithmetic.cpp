@@ -8,7 +8,7 @@ void Execute::add(VM *vm, Instruction *instr) {
 	AVM_memcell *rv1 = vm->translate_operand(&instr->arg1, &vm->ax);
 	AVM_memcell *rv2 = vm->translate_operand(&instr->arg2, &vm->bx);
 
-	assert(lv && ((&vm->stack.stack[AVM_STACKSIZE] >= lv && &vm->stack.stack[0] < lv) || lv == &vm->retval));
+	//assert(lv && ((&vm->stack.stack[AVM_STACKSIZE] >= lv && &vm->stack.stack[0] < lv) || lv == &vm->retval));
 	assert(rv1 && rv2);
 
 	if (rv1->type != AVM_memcell_t::number_m || rv2->type != AVM_memcell_t::number_m)
@@ -52,8 +52,8 @@ void Execute::mul(VM *vm, Instruction *instr) {
 	AVM_memcell *rv1 = vm->translate_operand(&instr->arg1, &vm->ax);
 	AVM_memcell *rv2 = vm->translate_operand(&instr->arg2, &vm->bx);
 
-	assert(lv && ((&vm->stack.stack[AVM_STACKSIZE] >= lv && &vm->stack.stack[0] < lv) || lv == &vm->retval));
-	assert(rv1 && rv2);
+	//assert(lv && ((&vm->stack.stack[AVM_STACKSIZE] >= lv && &vm->stack.stack[0] < lv) || lv == &vm->retval));
+	//assert(rv1 && rv2);
 
 	if (rv1->type != AVM_memcell_t::number_m || rv2->type != AVM_memcell_t::number_m)
 	{

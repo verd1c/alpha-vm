@@ -188,7 +188,7 @@ AVM_memcell *VM::translate_operand(VMArg *arg, AVM_memcell *reg) {
 		return reg;
 	case VMArg_t::string:
 		reg->type = AVM_memcell_t::string_m;
-		reg->data.strVal = strdup(this->strings.at(arg->val).c_str());
+		reg->data.strVal =	(char*)this->strings.at(arg->val).c_str();
 		return reg;
 	case VMArg_t::bool_a:
 		reg->type = AVM_memcell_t::bool_m;

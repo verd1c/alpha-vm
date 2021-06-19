@@ -1,5 +1,6 @@
 #ifndef __STRUCTS__
 #define __STRUCTS__
+#include <cstring>
 
 #define AVM_STACKSIZE   4096
 #define AVM_TABLE_HASHSIZE 211
@@ -42,12 +43,14 @@ struct bucket {
 
 class Table {
 public:
+    char *addr;
     unsigned ref_counter;
     unsigned total;
 
     /* indexes */
     bucket *str_indexed[AVM_TABLE_HASHSIZE];
     bucket *num_indexed[AVM_TABLE_HASHSIZE];
+    bucket *tab_indexed[AVM_TABLE_HASHSIZE];
 
     Table();
 
@@ -68,7 +71,9 @@ public:
 
 class AVMStack {
 public:
+    //AVM_memcell xaxatoeftiaksa1[AVM_STACKSIZE];
     AVM_memcell stack[AVM_STACKSIZE];
+    //AVM_memcell xaxatoeftiaksa2[AVM_STACKSIZE];
     AVMStack();
 };
 

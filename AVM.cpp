@@ -5,13 +5,15 @@
 #include "vm.h"
 #include "vmarg.h"
 
+VM *debug;
+
 int main()
 {
     VM vm = VM();
+    debug = &vm;
     vm.parse("target.abc");
     while (!vm.exec_finished) {
         vm.execute_cycle();
     }
-    //vm.printInstructions();
     return 1;
 }

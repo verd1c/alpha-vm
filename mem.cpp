@@ -110,12 +110,46 @@ void libfunc_print (VM *vm) {
 	unsigned n = mem::totalactuals(vm);
 	for (unsigned i = 0; i < n; i++) {
 		char *str = tostring::avm_tostring(vm, mem::getactual(vm, i));
-		puts(str);
+		printf("%s", str);
 	}
 }
 
+void libfunc_objecttotalmembers(VM *vm) {
+	int size = 0;
+	unsigned n = mem::totalactuals(vm);
+	if (n != 1)
+		printf("wat\n");
+
+	AVM_memcell *arg = mem::getactual(vm, 0);
+
+	if (arg->type != AVM_memcell_t::table_m) {
+		printf("Wasn't table\n");
+	}
+
+	for (int i = 0; i < AVM_TABLE_HASHSIZE; i++) {
+		if (arg->data.tableVal->str_indexed[i])
+			size++;
+		if (arg->data.tableVal->num_indexed[i])
+			size++;
+		if (arg->data.tableVal->tab_indexed[i])
+			size++;
+	}
+
+	vm->retval.type = AVM_memcell_t::number_m;
+	vm->retval.data.numVal = size;
+	return;
+}
+
 library_func_t avm_getlibraryfunc(VM *vm, char *id) {
-	return libfunc_print;
+	if (strcmp(id, "print") == 0) {
+		return libfunc_print;
+	}
+	else if (strcmp(id, "objecttotalmembers") == 0) {
+		return libfunc_objecttotalmembers;
+	}
+	else {
+		return 0;
+	}
 }
 
 void mem::calllibfunc(VM *vm, char *id) {

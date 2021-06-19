@@ -6,9 +6,11 @@
 
 Table::Table() {
     this->ref_counter = 0;
+    this->addr = (char*)this;
 
     initBuckets(str_indexed);
     initBuckets(num_indexed);
+    initBuckets(tab_indexed);
 }
 
 void Table::initBuckets(bucket **t) {
@@ -63,6 +65,9 @@ unsigned Table::hash(AVM_memcell *key) {
             sum = sum * HASH_MULTIPLIER + str[i];
         }
         break;
+    case table_m:
+        sum = (unsigned int)key->data.tableVal->addr * AVM_TABLE_HASHSIZE;
+        break;
     default:
         assert(0);
     }
@@ -80,6 +85,9 @@ bucket **Table::getTable(AVM_memcell *key) {
         break;
     case string_m:
         return this->str_indexed;
+        break;
+    case table_m:
+        return this->tab_indexed;
         break;
     default:
         assert(0);
@@ -99,6 +107,12 @@ bool keycmp(AVM_memcell *key1, AVM_memcell *key2) {
         break;
     case string_m:
         if (strcmp(key1->data.strVal, key2->data.strVal) == 0)
+            return true;
+        else
+            return false;
+        break;
+    case table_m:
+        if (key1->data.tableVal->addr == key2->data.tableVal->addr)
             return true;
         else
             return false;
@@ -144,20 +158,29 @@ void Table::setElem(AVM_memcell *key, AVM_memcell *value) {
 
     if (!iter) {
         table[h] = (bucket *)malloc(sizeof(bucket));
-        memcpy(&table[h]->key, key, sizeof(bucket));
-        memcpy(&table[h]->value, value, sizeof(bucket));
+        memcpy(&table[h]->key, key, sizeof(AVM_memcell));
+        memcpy(&table[h]->value, value, sizeof(AVM_memcell));
         table[h]->next = (bucket *)0;
         return;
     }
 
-    while (iter->next) {
+
+    bucket *prev = iter;
+    while (iter) {
+        if (keycmp(&iter->key, key)) {
+            memcpy(&iter->key, key, sizeof(AVM_memcell));
+            memcpy(&iter->value, value, sizeof(AVM_memcell));
+            return;
+        }
+
+        prev = iter;
         iter = iter->next;
     }
 
-    iter->next = (bucket *)malloc(sizeof(bucket));
-    iter->next->key = *key;
-    iter->next->value = *value;
-    iter->next->next = (bucket *)0;
+    prev->next = (bucket *)malloc(sizeof(bucket));
+    prev->next->key = *key;
+    prev->next->value = *value;
+    prev->next->next = (bucket *)0;
 
     return;
 }
