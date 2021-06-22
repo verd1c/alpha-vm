@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -141,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AVM.cpp" />
+    <ClCompile Include="error.cpp" />
     <ClCompile Include="execute.cpp" />
     <ClCompile Include="execute\arithmetic.cpp" />
     <ClCompile Include="execute\assign.cpp" />
@@ -149,7 +151,9 @@
     <ClCompile Include="execute\func.cpp" />
     <ClCompile Include="execute\nop.cpp" />
     <ClCompile Include="execute\table.cpp" />
+    <ClCompile Include="lib.cpp" />
     <ClCompile Include="mem.cpp" />
+    <ClCompile Include="tables.cpp" />
     <ClCompile Include="tools\arith.cpp" />
     <ClCompile Include="tools\bool.cpp" />
     <ClCompile Include="tools\strings.cpp" />
